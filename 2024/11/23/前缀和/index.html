@@ -3,7 +3,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | Hexo</title>
+    <title>前缀和 | Hexo</title>
     <meta name="author" content="BaoJiang" />
     <meta name="description" content="" />
     <meta name="keywords" content="" />
@@ -38,6 +38,14 @@
 
 <script src="/js/lib/preview.js"></script>
 
+
+
+
+
+
+<script src="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline.min.css" />
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/waline/2.15.8/waline-meta.min.css" />
 
 
 
@@ -150,128 +158,139 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div class="article">
+    <div>
+        <h1>前缀和</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/11/23
+        </span>
+        
+        
+        <span class="tags">
+            <span class="icon">
+                <i class="fa-solid fa-tags fa-fw"></i>
+            </span>
             
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
-        
-        <div class="timeline" data-title="评论区">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/11/21</div>
-                <a href="/2024/11/21/%E8%AF%84%E8%AE%BA%E5%8C%BA/">
-                    <h3>评论区</h3>
+            
+            <span class="tag">
+                
+                <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #00bcd4">
+                    算法
                 </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/other/" style="color: #00a596">
-                                other
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="差分">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/11/23</div>
-                <a href="/2024/11/23/%E5%B7%AE%E5%88%86/">
-                    <h3>差分</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #03a9f4">
-                                算法
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="前缀和">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/11/23</div>
-                <a href="/2024/11/23/%E5%89%8D%E7%BC%80%E5%92%8C/">
-                    <h3>前缀和</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #00bcd4">
-                                算法
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
-        
-        <div class="timeline" data-title="双指针">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2024/11/23</div>
-                <a href="/2024/11/23/%E5%8F%8C%E6%8C%87%E9%92%88/">
-                    <h3>双指针</h3>
-                </a>
-                <div class="info">
-                    
-                    
-                    <span class="tags">
-                        <span class="icon">
-                            <i class="fa-solid fa-tags fa-fw"></i>
-                        </span>
-                        
-                        
-                        <span class="tag">
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #ff7d73">
-                                算法
-                            </a>
-                        </span>
-                        
-                    </span>
-                    
-                </div>
-            </div>
-        </div>
+            </span>
+            
+        </span>
         
     </div>
+    
+    <div class="content" v-pre>
+        <p>前期最像算法的“基础算法”</p>
+<p>首先看看怎么来的前缀和算法</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8218">题目传送门</a></p>
+<p>（经典例题区间和）</p>
+<p>学前缀和之前：</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+const int N = 1e5+10;
+int a[N];
+
+int main()
+&#123;
+  int n;
+  cin&gt;&gt;n;
+  for( int i = 1; i &lt;= n; i++)
+  &#123;
+    cin&gt;&gt;a[i];
+  &#125;
+  int m;
+  cin&gt;&gt;m;
+  while( m-- )
+  &#123;
+    int l,r;
+    cin&gt;&gt;l&gt;&gt;r;
+    int su = 0;
+    for( int i = l ; i &lt;= r ; i++ )
+      su += a[i];
+    cout&lt;&lt;su&lt;&lt;endl;
+  &#125;
+&#125;
+</code></pre>
+<p>然后浅浅看一眼时间复杂度</p>
+<p><img src="/img/%E5%89%8D%E7%BC%80%E5%92%8C+d6355143-9af0-4823-bb9b-e94ad0b9a065/image.png" alt="image.png"></p>
+<p><code>对于所有测试数据，n,m≤10^5,ai​≤10^4</code></p>
+<p>时间复杂度是O(m*(r-l))&#x3D;O(m*n)</p>
+<p>所以我们取极限水准：m&#x3D;1e5,n&#x3D;1e5</p>
+<p>算一下运算次数：10的10次方…….</p>
+<p>正常来说算法题目使用c++一秒的运算次数在<strong>10的8次方</strong>左右</p>
+<p>所以这么做的话肯定是完成不了我们的题目，由此我们就需要去寻找一个更好的计算方法→前缀和算法</p>
+<p>前缀和思想：已知一个固定的序列，我想要求出从某个下标加到另一个下标，那么就可以使用累加的公式稍微变形</p>
+<p>公式推导过程：</p>
+<pre><code class="C++">b[i] = a[1] + a[2] +......+ a[i]  //前缀和定义     .1
+b[j] = a[1] + a[2] +......+ a[i] + a[i+1] +......+ a[j]    //.2
+//假设现在我要求a[i] 加到 a[j] 的和(j&gt;i)
+将1式和2式上下相减可得
+b[j] - b[i] = a[i+1] + a[i+2] +......+ a[j]
+//发现等号右边加上个a[i]就是我们需要的东西了，所以等式两边同时加上a[i]
+b[j] - b[i] + a[i] = a[i] + a[i+1] + a[i+2] +......+ a[j]
+//所以右边那一大串就可以简化为
+b[j] - b[i] + a[i]
+//再根据b[i]定义
+b[i] = a[1] + a[2] +......+ a[i]
+//代换一下
+b[j] - (a[1]+a[2]+....+a[i]) + a[i]
+=b[j] - (a[1]+a[2]+......+a[i-1])
+=b[j] - b[i-1]
+</code></pre>
+<p>至此，前缀和公式推导完毕</p>
+<p>接下来就是补充细节问题</p>
+<ol>
+<li><p>b[i]如果只用公式求，那么时间复杂度会非常大,运算次数：1+2+3+4+….+n,但是我们可以运用一下递推：b[i] &#x3D; b[i-1] + a[i],这样时间花费就会降到n次</p>
+</li>
+<li><p>根据递推公式和题目要求，如果原数组用不到的话，可以将a数组直接变成一个前缀和数组:a[i] &#x3D; a[i-1] + a[i]</p>
+</li>
+</ol>
+<p>最终代码</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+
+const int N = 1e5+10;
+int a[N];
+
+int main()
+&#123;
+    int n,m,l,r;
+    cin&gt;&gt;n;
+    for( int i = 1 ; i &lt;= n ; i++ )
+    &#123;
+        cin&gt;&gt;a[i];
+        a[i] = a[i-1] + a[i];
+    &#125;
+    cin&gt;&gt;m;
+    while( m-- )
+    &#123;
+        cin&gt;&gt;l&gt;&gt;r;
+        cout&lt;&lt; a[r] - a[l-1] &lt;&lt;endl;
+    &#125;
+&#125;
+</code></pre>
+
+    </div>
+    
+    
+    
+    
+    
+    <div id="comment">
+        <div id="waline-container"></div>
+    </div>
+    
+    
+    
 </div>
 
             <footer id="footer">
@@ -302,6 +321,29 @@
         
     </div>
     <script src="/js/main.js"></script>
+    
+    
+
+
+<script>
+    Waline.init({
+        el: "#waline-container",
+        serverURL: "https://waline-test-is5l3l51v-baojianghezais-projects.vercel.app/",
+        commentCount: true,
+        pageview: false,
+        emoji: "https://unpkg.com/@waline/emojis@1.2.0/weibo,https://unpkg.com/@waline/emojis@1.2.0/alus,https://unpkg.com/@waline/emojis@1.2.0/bilibili,https://unpkg.com/@waline/emojis@1.2.0/qq,https://unpkg.com/@waline/emojis@1.2.0/tieba,https://unpkg.com/@waline/emojis@1.2.0/tw-emoji".split(","),
+        meta: "nick".split(","),
+        requiredMeta: "nick".split(","),
+        lang: "zh-CN",
+        wordLimit: 0,
+        pageSize: "10",
+        login: "disable",
+        
+    });
+</script>
+
+
+
     
 </body>
 </html>

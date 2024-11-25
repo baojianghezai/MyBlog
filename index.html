@@ -1,450 +1,590 @@
 
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="utf-8" />
+    <title>Hexo</title>
+    <meta name="author" content="BaoJiang" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
 
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
-  <meta name="keywords" content="">
-  
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="John Doe">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>Hexo</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
 
 
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
 
 
 
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
+<script src="/js/lib/preview.js"></script>
 
 
 
 
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"4ryyuP9x1JZHarus4YzmH4PH-gzGzoHsz","app_key":"9j58JpfF4cmWDGgNJ4Zbq6Ho","server_url":"https://4ryyup9x.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":true},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
+<script src="/js/lib/home.js"></script>
 
-  
+<link rel="stylesheet" href="/css/main.css" />
 
-  
-
-  
-
-  
-
-  
-    
-  
-
-
-
-  
 <meta name="generator" content="Hexo 7.3.0"></head>
-
-
 <body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 100vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Fluid</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/main.bk.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="欢迎来到宝酱的博客~"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-        <div class="scroll-down-bar">
-          <i class="iconfont icon-arrowdown"></i>
-        </div>
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          style="margin-top: 0">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/11/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" target="_self">
-          我的第一篇博客
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/11/21/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" target="_self">
-        <div>
-          
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-11-21 11:46" pubdate>
-              2024-11-21
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/11/20/hello-world/" target="_self">
-          Hello World
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/11/20/hello-world/" target="_self">
-        <div>
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-11-20 14:59" pubdate>
-              2024-11-20
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
-              </div>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
             </div>
-          </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>HEXO</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;Categories</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;Tags</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;HEXO</span>
         </div>
-      </div>
-    
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Categories</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Tags</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
 
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div id="home-head">
+    <div
+        id="home-background"
+        ref="homeBackground"
+        data-images="/images/background.jpg"
+    ></div>
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>Hexo</h1>
+                <h3></h3>
+                <h5></h5>
+            </div>
+        </span>
+    </div>
+</div>
+<div
+    id="home-posts-wrap"
+    ref="homePostsWrap"
+    true
+>
+    <div id="home-posts">
+        
 
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+<div class="post">
+    <a href="/2024/11/21/%E8%AF%84%E8%AE%BA%E5%8C%BA/">
+        <h2 class="post-title">评论区</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/11/21
+        </span>
+        
+        
+        <span class="special">
+            <i class="fa-solid fa-grip-vertical fa-fw"></i>
+        </span>
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            
+            
         </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
     </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/other/" style="color: #03a9f4">other</a>
+        </span>
+        
     </div>
-  
-  
-    <div class="statistics">
-  
-  
-
-  
-    
-      <span id="leancloud-site-pv-container" style="display: none">
-        总访问量 
-        <span id="leancloud-site-pv"></span>
-         次
-      </span>
-    
-    
-      <span id="leancloud-site-uv-container" style="display: none">
-        总访客数 
-        <span id="leancloud-site-uv"></span>
-         人
-      </span>
-    
-    
-
-  
-
+    <a href="/2024/11/21/%E8%AF%84%E8%AE%BA%E5%8C%BA/" class="go-post">阅读全文</a>
 </div>
 
-  
-  
+<div class="post">
+    <a href="/2024/11/23/%E5%8F%8C%E6%8C%87%E9%92%88/">
+        <h2 class="post-title">双指针</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/11/23
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #ff7d73">算法</a>
+        </span>
+        
+    </div>
+    <a href="/2024/11/23/%E5%8F%8C%E6%8C%87%E9%92%88/" class="go-post">阅读全文</a>
 </div>
 
-  </footer>
+<div class="post">
+    <a href="/2024/11/23/%E5%89%8D%E7%BC%80%E5%92%8C/">
+        <h2 class="post-title">前缀和</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/11/23
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>前期最像算法的“基础算法”</p>
+<p>首先看看怎么来的前缀和算法</p>
+<p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P8218">题目传送门</a></p>
+<p>（经典例题区间和）</p>
+<p>学前缀和之前：</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+const int N = 1e5+10;
+int a[N];
 
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+int main()
+&#123;
+  int n;
+  cin&gt;&gt;n;
+  for( int i = 1; i &lt;= n; i++)
+  &#123;
+    cin&gt;&gt;a[i];
+  &#125;
+  int m;
+  cin&gt;&gt;m;
+  while( m-- )
+  &#123;
+    int l,r;
+    cin&gt;&gt;l&gt;&gt;r;
+    int su = 0;
+    for( int i = l ; i &lt;= r ; i++ )
+      su += a[i];
+    cout&lt;&lt;su&lt;&lt;endl;
+  &#125;
+&#125;
+</code></pre>
+<p>然后浅浅看一眼时间复杂度</p>
+<p><img src="/img/%E5%89%8D%E7%BC%80%E5%92%8C+d6355143-9af0-4823-bb9b-e94ad0b9a065/image.png" alt="image.png"></p>
+<p><code>对于所有测试数据，n,m≤10^5,ai​≤10^4</code></p>
+<p>时间复杂度是O(m*(r-l))&#x3D;O(m*n)</p>
+<p>所以我们取极限水准：m&#x3D;1e5,n&#x3D;1e5</p>
+<p>算一下运算次数：10的10次方…….</p>
+<p>正常来说算法题目使用c++一秒的运算次数在<strong>10的8次方</strong>左右</p>
+<p>所以这么做的话肯定是完成不了我们的题目，由此我们就需要去寻找一个更好的计算方法→前缀和算法</p>
+<p>前缀和思想：已知一个固定的序列，我想要求出从某个下标加到另一个下标，那么就可以使用累加的公式稍微变形</p>
+<p>公式推导过程：</p>
+<pre><code class="C++">b[i] = a[1] + a[2] +......+ a[i]  //前缀和定义     .1
+b[j] = a[1] + a[2] +......+ a[i] + a[i+1] +......+ a[j]    //.2
+//假设现在我要求a[i] 加到 a[j] 的和(j&gt;i)
+将1式和2式上下相减可得
+b[j] - b[i] = a[i+1] + a[i+2] +......+ a[j]
+//发现等号右边加上个a[i]就是我们需要的东西了，所以等式两边同时加上a[i]
+b[j] - b[i] + a[i] = a[i] + a[i+1] + a[i+2] +......+ a[j]
+//所以右边那一大串就可以简化为
+b[j] - b[i] + a[i]
+//再根据b[i]定义
+b[i] = a[1] + a[2] +......+ a[i]
+//代换一下
+b[j] - (a[1]+a[2]+....+a[i]) + a[i]
+=b[j] - (a[1]+a[2]+......+a[i-1])
+=b[j] - b[i-1]
+</code></pre>
+<p>至此，前缀和公式推导完毕</p>
+<p>接下来就是补充细节问题</p>
+<ol>
+<li><p>b[i]如果只用公式求，那么时间复杂度会非常大,运算次数：1+2+3+4+….+n,但是我们可以运用一下递推：b[i] &#x3D; b[i-1] + a[i],这样时间花费就会降到n次</p>
+</li>
+<li><p>根据递推公式和题目要求，如果原数组用不到的话，可以将a数组直接变成一个前缀和数组:a[i] &#x3D; a[i-1] + a[i]</p>
+</li>
+</ol>
+<p>最终代码</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
 
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
+const int N = 1e5+10;
+int a[N];
+
+int main()
+&#123;
+    int n,m,l,r;
+    cin&gt;&gt;n;
+    for( int i = 1 ; i &lt;= n ; i++ )
+    &#123;
+        cin&gt;&gt;a[i];
+        a[i] = a[i-1] + a[i];
+    &#125;
+    cin&gt;&gt;m;
+    while( m-- )
+    &#123;
+        cin&gt;&gt;l&gt;&gt;r;
+        cout&lt;&lt; a[r] - a[l-1] &lt;&lt;endl;
+    &#125;
+&#125;
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #03a9f4">算法</a>
+        </span>
+        
+    </div>
+    <a href="/2024/11/23/%E5%89%8D%E7%BC%80%E5%92%8C/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2024/11/23/%E5%B7%AE%E5%88%86/">
+        <h2 class="post-title">差分</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2024/11/23
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2367">前缀和模板题传送门-洛谷</a></p>
+<h4 id="差分经典模板题"><a href="#差分经典模板题" class="headerlink" title="差分经典模板题"></a>差分经典模板题</h4><p>还是看一下没学差分之前，暴力解题的代码</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+const int N = 5e6+10;//根据题目给出的n值确定数组大小
+int a[N];            //确定数组大小
+int main()
+&#123;
+    int n,m;
+    cin&gt;&gt;n&gt;&gt;m;
+    for( int i = 1 ; i &lt;= n ; i++ )
+    &#123;
+        cin&gt;&gt;a[i];
+    &#125;
+    while( m-- )     //m次循环的快捷写法
+    &#123;
+        int x,y,z;
+        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;
+        for( int i = x ; i &lt;= y ; i++ )
+        &#123;
+            a[i] += z;   //从第x到第y个学生的成绩加z
+        &#125;
+    &#125;
+    int mi = 0x3f3f3f3f;
+    for( int i = 1 ; i &lt;= n ; i++ )
+    &#123;
+        mi = min(mi,a[i]);     //寻找最小值
+    &#125;
+    cout&lt;&lt;mi;
+&#125;
+</code></pre>
+<p>再简单分析一下时间复杂度</p>
+<pre><code class="C++">while( m-- )     //m次循环的快捷写法
+    &#123;
+        int x,y,z;
+        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;
+        for( int i = x ; i &lt;= y ; i++ )
+        &#123;
+            a[i] += z;   //从第x到第y个学生的成绩加z
+        &#125;
+    &#125;
+</code></pre>
+<p>很明显这段代码就是我们运算次数最多的，看一下数据量</p>
+<p><img src="/img/%E5%B7%AE%E5%88%86+eeac7745-4c8f-410d-8015-e91ce57e0c56/image.png" alt="image.png"></p>
+<p>可以发现n的极限为5<em>10的6次方，所以for循环内最大就是5</em>10的6次方</p>
+<p>再结合m次循环，可以发现是一个O(n^2)的时间复杂度，很明显会超时</p>
+<p><img src="/img/%E5%B7%AE%E5%88%86+eeac7745-4c8f-410d-8015-e91ce57e0c56/image1.png" alt="image.png"></p>
+<p>也就是这样</p>
+<h4 id="那怎么去优化我们的过程呢"><a href="#那怎么去优化我们的过程呢" class="headerlink" title="那怎么去优化我们的过程呢"></a>那怎么去优化我们的过程呢</h4><p>分析整个代码，我们可以发现，<code>while(m--)</code>这个循环是题目要求所必须的，所以只能对while里面的for循环下手</p>
+<p>这里就可以从伟大的数学家那里窃取亿点点思路了</p>
+<p>这里借鉴网上和我自己理解，写出俩差分的思路</p>
+<p><img src="/img/%E5%B7%AE%E5%88%86+eeac7745-4c8f-410d-8015-e91ce57e0c56/image2.png" alt="image.png"></p>
+<p><img src="/img/%E5%B7%AE%E5%88%86+eeac7745-4c8f-410d-8015-e91ce57e0c56/image3.png" alt="image.png"></p>
+<h4 id="由此我们可以考虑构建一个差分数组，让b-i-a-i-a-i-1-i-0"><a href="#由此我们可以考虑构建一个差分数组，让b-i-a-i-a-i-1-i-0" class="headerlink" title="由此我们可以考虑构建一个差分数组，让b[i]&#x3D;a[i]-a[i-1]   (i&gt;0)"></a>由此我们可以考虑构建一个差分数组，让b[i]&#x3D;a[i]-a[i-1]   (i&gt;0)</h4><h4 id="通过改变b-i-的值来进行-i-后面元素统一修改，再通过改变结束位置的值来进行加减相互抵消，达成区域快速加减的目的，最后通过前缀和得到原数组"><a href="#通过改变b-i-的值来进行-i-后面元素统一修改，再通过改变结束位置的值来进行加减相互抵消，达成区域快速加减的目的，最后通过前缀和得到原数组" class="headerlink" title="通过改变b[i]的值来进行[i]后面元素统一修改，再通过改变结束位置的值来进行加减相互抵消，达成区域快速加减的目的，最后通过前缀和得到原数组"></a>通过改变b[i]的值来进行[i]后面元素统一修改，再通过改变结束位置的值来进行加减相互抵消，达成区域快速加减的目的，最后通过前缀和得到原数组</h4><p>代码如下</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+const int N = 5e6+10;
+int a[N],b[N];
+int main()
+&#123;
+    int n,m;
+    cin&gt;&gt;n&gt;&gt;m;
+    for( int i = 1 ; i &lt;= n ; i++ )
+    &#123;
+        cin&gt;&gt;a[i];
+        b[i] = a[i] - a[i-1];
+    &#125;
+    while( m-- )
+    &#123;
+        int x,y,z;
+        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;
+        b[x] += z;
+        b[y+1] -= z;
+    &#125;
+
+    for( int i = 1 ; i &lt;= n ; i++ )
+    &#123;
+        a[i] = a[i-1] + b[i];
+    &#125;
+
+    int mi = 0x3f3f3f3f;
+    for( int i = 1 ; i &lt;= n ; i++ )
+    &#123;
+        mi = min(mi,a[i]);
+    &#125;
+    cout&lt;&lt;mi;
+&#125;
+</code></pre>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #00bcd4">算法</a>
+        </span>
+        
+    </div>
+    <a href="/2024/11/23/%E5%B7%AE%E5%88%86/" class="go-post">阅读全文</a>
+</div>
 
 
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
+        <div class="page-current">
+    
+    <span class="current">1</span>
+    
+    
+    
+    
+</div>
 
+    </div>
+    
+    <div id="home-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">BaoJiang</div>
+        <div class="description">
+            <p>Description<br>…</p>
 
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://argvchs.github.io">Argvchs</a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
 
+    </div>
+    
+</div>
 
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 Hexo
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;BaoJiang
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
 
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script defer src="/js/leancloud.js" ></script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
 </body>
 </html>
