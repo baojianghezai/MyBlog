@@ -56,7 +56,7 @@
                 <div id="loading-circle">
                     <h2>LOADING</h2>
                     <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
+                    <img src="/images/loading.gif" data-original="/images/loading.gif" />
                 </div>
             </div>
         </transition>
@@ -228,16 +228,16 @@ int main()
     &#125;
 </code></pre>
 <p>很明显这段代码就是我们运算次数最多的，看一下数据量</p>
-<p><img src="/images/chafen1.png" alt="image.png"></p>
+<p><img src="/images/loading.gif" data-original="/images/chafen1.png" alt="image.png"></p>
 <p>可以发现n的极限为5<em>10的6次方，所以for循环内最大就是5</em>10的6次方</p>
 <p>再结合m次循环，可以发现是一个O(n^2)的时间复杂度，很明显会超时</p>
-<p><img src="/images/chafen2.png" alt="image.png"></p>
+<p><img src="/images/loading.gif" data-original="/images/chafen2.png" alt="image.png"></p>
 <p>也就是这样</p>
 <h4 id="那怎么去优化我们的过程呢"><a href="#那怎么去优化我们的过程呢" class="headerlink" title="那怎么去优化我们的过程呢"></a>那怎么去优化我们的过程呢</h4><p>分析整个代码，我们可以发现，<code>while(m--)</code>这个循环是题目要求所必须的，所以只能对while里面的for循环下手</p>
 <p>这里就可以从伟大的数学家那里窃取亿点点思路了</p>
 <p>这里借鉴网上和我自己理解，写出俩差分的思路</p>
-<p><img src="/images/chafen3.png" alt="image.png"></p>
-<p><img src="/images/chafen4.png" alt="image.png"></p>
+<p><img src="/images/loading.gif" data-original="/images/chafen3.png" alt="image.png"></p>
+<p><img src="/images/loading.gif" data-original="/images/chafen4.png" alt="image.png"></p>
 <h4 id="由此我们可以考虑构建一个差分数组，让b-i-a-i-a-i-1-i-0"><a href="#由此我们可以考虑构建一个差分数组，让b-i-a-i-a-i-1-i-0" class="headerlink" title="由此我们可以考虑构建一个差分数组，让b[i]&#x3D;a[i]-a[i-1]   (i&gt;0)"></a>由此我们可以考虑构建一个差分数组，让b[i]&#x3D;a[i]-a[i-1]   (i&gt;0)</h4><h4 id="通过改变b-i-的值来进行-i-后面元素统一修改，再通过改变结束位置的值来进行加减相互抵消，达成区域快速加减的目的，最后通过前缀和得到原数组"><a href="#通过改变b-i-的值来进行-i-后面元素统一修改，再通过改变结束位置的值来进行加减相互抵消，达成区域快速加减的目的，最后通过前缀和得到原数组" class="headerlink" title="通过改变b[i]的值来进行[i]后面元素统一修改，再通过改变结束位置的值来进行加减相互抵消，达成区域快速加减的目的，最后通过前缀和得到原数组"></a>通过改变b[i]的值来进行[i]后面元素统一修改，再通过改变结束位置的值来进行加减相互抵消，达成区域快速加减的目的，最后通过前缀和得到原数组</h4><p>代码如下</p>
 <pre><code class="C++">#include &lt;iostream&gt;
 using namespace std;
@@ -288,7 +288,7 @@ int main()
     <div id="footer-wrap">
         <div>
             &copy;
-            2022 - 2024 宝酱何在
+            2024 - 2024 宝酱何在
             <span id="footer-icon">
                 <i class="fa-solid fa-font-awesome fa-fw"></i>
             </span>
@@ -319,5 +319,18 @@ int main()
 
 
     
-</body>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
 </html>
