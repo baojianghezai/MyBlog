@@ -163,7 +163,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2024/11/23
+            2024/11/27
         </span>
         
         
@@ -175,7 +175,7 @@
             
             <span class="tag">
                 
-                <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #ff7d73">
+                <a href="/tags/%E7%AE%97%E6%B3%95/" style="color: #ffa2c4">
                     算法
                 </a>
             </span>
@@ -185,7 +185,214 @@
     </div>
     
     <div class="content" v-pre>
-        
+        <p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1147">洛谷-P1147 连续自然数和</a></p>
+<p>先来看一道例题</p>
+<p>先来理解一下题意：给出一个整数M，构建一个从1到M的数列，然后从数列中选出一个l和r，如果<strong>l+(l+1)+(l+2)+……+r &#x3D; M</strong> 的话，则输出l和r</p>
+<span id="more"></span>
+
+<p>正常思路：从0到M枚举l，再去找出是否存在r值满足上面条件</p>
+<p>代码如下：</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+
+void su( int l , int r ) //求出l到r所有数的和
+&#123;
+    int suma = 0;
+    for( int i = l; i &lt;= r ; i++ )
+    &#123;
+        suma += i;
+    &#125;
+    return suma;
+&#125;
+
+int main()
+&#123;
+    int m;
+    cin&gt;&gt;m;
+    for( int l = 1 ; l &lt;= m ; l++ )
+    &#123;
+        for( int r = l ; r &lt;= m ; r++ )
+        &#123;
+            if( su(l,r) == m )
+            &#123;
+                cout&lt;&lt;l&lt;&lt;&quot; &quot;&lt;&lt;r&lt;&lt;endl;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>嗯~再去瞅一眼时间复杂度</p>
+<p><img src="/images/loading.gif" data-original="/images/shuangzhizhen1.png" alt="image.png"></p>
+<p>两层for循环，N^2了，再加上su函数也算一个l到r的循环</p>
+<p>因此……时间复杂度来到了恐怖的N^3</p>
+<p>M的数据量在10~2e6之间，所以这道题用这种方法的话包<strong>超时的</strong></p>
+<p>再想想怎么去优化</p>
+<p>首先想的的是我真的需要循环这么多次数吗？</p>
+<p>由题目中描述<strong>“给出一个满足条件的连续正整数段中的第一个数和最后一个数”</strong>，可以知道两个数必然是连续的，又想到在M&#x2F;2往后将不会满足条件→当l&#x3D;M&#x2F;2的时候，下一个就已经超过M&#x2F;2，因此循环可以减少一半</p>
+<p>再去想，当我的某个l找到对应的r之后，还需要继续去移动我的r指针吗？</p>
+<p>→很明显答案是不需要，因为这时候r再+1的话，结果必定会大于M</p>
+<p>因此我们可以直接break掉</p>
+<p>修改之后的代码</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+
+void su( int l , int r ) //求出l到r所有数的和
+&#123;
+    int suma = 0;
+    for( int i = l; i &lt;= r ; i++ )
+    &#123;
+        suma += i;
+    &#125;
+    return suma;
+&#125;
+
+int main()
+&#123;
+    int m;
+    cin&gt;&gt;m;
+    for( int l = 1 ; l &lt;= m/2 ; l++ )
+    &#123;
+        for( int r = l ; r &lt;= m/2 ; r++ )
+        &#123;
+            if( su(l,r) == m )
+            &#123;
+                cout&lt;&lt;l&lt;&lt;&quot; &quot;&lt;&lt;r&lt;&lt;endl;
+                break;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>时间复杂度还是很大，这时候又可以想到从l加到r可以用一个叫前缀和的东西去解决</p>
+<p>因此构建前缀和数组，优化函数部分</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+
+const int N = 2e6+10;
+int a[N];
+
+int main()
+&#123;
+    int m;
+    cin&gt;&gt;m;
+    for( int i = 1 ; i &lt;= m ; i++ )  //构建前缀和数组
+    &#123;
+        a[i] = a[i-1] + i;
+    &#125;
+    for( int l = 1 ; l &lt;= m/2 ; l++ )
+    &#123;
+        for( int r = l ; r &lt;= m/2 ; r++ )
+        &#123;
+            if( a[r]-a[l-1] == m )
+            &#123;
+                cout&lt;&lt;l&lt;&lt;&quot; &quot;&lt;&lt;r&lt;&lt;endl;
+                break;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>好，时间复杂度已经优化到N^2&#x2F;4 了</p>
+<p>但是还是非常大</p>
+<p>这时候再去想：</p>
+<p>枚举l的时候，是否需要将r移动到l+1的地方</p>
+<p>推断一下：用<strong>sum表示从l加到r</strong>，假设此时sum&#x3D;&#x3D;m，当l往右移动一个的时候，sum变为sum-l，此时如果将r向右移动的话，必然会导致最终的sum&gt;m，这时候只能将l再次向右移动，但移动到什么程度为止，很明显我们不能非常容易的得到答案</p>
+<p>那么我们可以去换一种思路</p>
+<p>我将sum和m状态分为三种</p>
+<blockquote>
+<p>sum &gt; m</p>
+</blockquote>
+<blockquote>
+<p>sum &#x3D; m</p>
+</blockquote>
+<blockquote>
+<p>sum &lt; m</p>
+</blockquote>
+<p>在这三种状态下，再去想需要进行什么操作</p>
+<blockquote>
+<p><strong>sum &gt; m</strong> 需要去减小sum，要么l向右，要么r向左，由于我们需要将指针向一个方向移动，所以需要将l向右移动→既<strong>l++</strong></p>
+</blockquote>
+<blockquote>
+<p>sum &#x3D; m 记录并输出</p>
+</blockquote>
+<blockquote>
+<p><strong>sum &lt; m</strong> 需要增大sum，l向左移动，或者r向右移动，和第一个一样，选择向右移动→既<strong>r++</strong></p>
+</blockquote>
+<p>那这时候可能就会有杠精站出来了：</p>
+<p>要是l向右移动的时候，漏掉了正确答案呢（也就是r需要向左动去寻找答案）</p>
+<p>那这里咱也可以去推断一下嗷</p>
+<p>首先l初始为1，r根据判断条件，无非两种结果：要么找到了sum&#x3D;m的点，要么直接变成sum &gt; m ，接下来就是去移动l了，当l向右移动过程中，如果有<strong>合适的r值</strong>，那么肯定是和l一起连续移动，那么一定会与<strong>现在的r值</strong>重合或者掠过，重合就是sum&#x3D;m，略过就是sum&gt;m，需要再去移动r，因此可以知道l向右移动的时候一定不会出现略过正确答案的情况</p>
+<p>因此代码最终形态就变成了这样</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+
+const int N = 2e6+10;
+int a[N];
+
+int main()
+&#123;
+    int m;
+    cin&gt;&gt;m;
+    for( int i = 1 ; i &lt;= m ; i++ )
+    &#123;
+        a[i] = a[i-1] + i;
+    &#125;
+    for( int l = 1 , r = 1 ; l &lt;= m/2 + 1 ;)
+    &#123;
+        int x = a[r] - a[l-1];
+        while( x &lt; m )
+        &#123;
+            r++;
+            x = a[r] - a[l-1];
+        &#125;
+        while( x &gt; m )
+        &#123;
+            l++;
+            x = a[r] - a[l-1];
+        &#125;
+        if( x == m )
+        &#123;
+            cout&lt;&lt;l&lt;&lt;&quot; &quot;&lt;&lt;r&lt;&lt;endl;
+            l++;
+            continue;
+        &#125;
+        if( r &gt; m || l &gt; m/2 ) break;
+    &#125;
+&#125;
+</code></pre>
+<p>&#x2F;&#x2F;但是由于这道题数据卡的不是很严格，所以下面这种做法也可以</p>
+<pre><code class="C++">#include &lt;iostream&gt;
+using namespace std;
+const int N = 1e6 + 10;
+int a[N],b[N];
+int main()
+&#123;
+    int m;
+    cin&gt;&gt;m;
+    for( int i = 1 ; i &lt;= m/2 + 1 ; i++ )
+    &#123;
+        a[i] = i;
+        b[i] = b[i-1] + a[i];
+    &#125;
+    for( int l = 1 ; l &lt;= m/2 + 1 ; l++ )
+    &#123;
+        for( int r = l+1 ; r &lt;= m/2 + 1 ; r++ )
+        &#123;
+            int x = b[r] - b[l-1];
+            if( x &gt; m ) break;
+            if( x == m )
+            &#123;
+                cout&lt;&lt;l&lt;&lt;&quot; &quot;&lt;&lt;r&lt;&lt;endl;
+                break;
+            &#125;
+        &#125;
+    &#125;
+    return 0;
+&#125;
+</code></pre>
+<p>这种思路就是当我r找的时候，如果发现sum&gt;m，那么就没有必要寻找下去了，直接break掉将l向右移动一个</p>
+<p>这个时间复杂度的话，假设r做多找到m&#x2F;2，那么就是m^2&#x2F;4，其实随着l越来越大，r需要找的就更少，因此时间应该是远少于这个值的，具体看测试点吧，个人不太推荐这种做法</p>
+
     </div>
     
     
